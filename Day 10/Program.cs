@@ -13,19 +13,20 @@ namespace Day_10
             BoardMember board = new() { EmployeeID = 26 };
 
             Department department = new Department() { DeptName = "Ay"};
-            department.AddStaff(emp);
-            department.AddStaff(sales);
-            department.AddStaff(board);
+            Club club = new Club() { ClubID = 1 , ClubName = "club"};
+            club.AddMember(sales);
+            club.AddMember(emp);
+            club.AddMember(board);
 
 
-            foreach(var staff in department.Staff)
+            foreach(var staff in club.Members)
             {
                 Console.WriteLine(staff.EmployeeID);  
             }
             Console.WriteLine();
             sales.CheckTarget(20);
             Console.WriteLine();
-            foreach (var staff in department.Staff)
+            foreach (var staff in club.Members)
             {
                 Console.WriteLine(staff.EmployeeID);
             }

@@ -11,7 +11,7 @@ namespace Day_10
     {
         public int ClubID { get; set; }
         public String ClubName { get; set; }
-        List<Employee> Members;
+        public List<Employee> Members { get; set; } = new();
         public void AddMember(Employee E)
         {
             Members.Add(E);
@@ -22,9 +22,9 @@ namespace Day_10
         public void RemoveMember
        (object sender, EmployeeLayOffEventArgs e)
         {
-            if (sender is BoardMember || e.Cause != LayOffCause.Vacation)
+            if (sender is BoardMember || e.Cause != LayOffCause.Age)
             {
-                Console.WriteLine($"Board Memebers cannot be removed");
+                Console.WriteLine($"Board Memebers and those who passed Age 60 cannot be removed");
             }
             else if (sender is Employee emp && Members.Contains(emp))
             {

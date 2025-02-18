@@ -29,10 +29,7 @@ namespace Day_10
             get { return birthDate; }
             set
             {
-                if (DateTime.Now.Year - value.Year > 60)
-                {
-                    OnEmployeeLayOff(new EmployeeLayOffEventArgs() { Cause = LayOffCause.Age });
-                }
+                
                 birthDate = value;
             }
         }
@@ -56,7 +53,10 @@ namespace Day_10
 
         public void EndOfYearOperation()
         {
-            throw new NotImplementedException();
+            if (DateTime.Now.Year - birthDate.Year > 60)
+            {
+                OnEmployeeLayOff(new EmployeeLayOffEventArgs() { Cause = LayOffCause.Age });
+            }
         }
     }
 }
